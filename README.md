@@ -9,6 +9,26 @@
 Project Name : We haven't decided yet 😅
 
 Project type : Social Media Application
+
+## Requirements
+
+- Development branch ☑️
+- Readme ☑️
+- Create wireframe 
+- As a user you have to navigate some information display it 
+- ReactJS ☑️
+- Express ☑️
+- Node ☑️
+- Axios
+- Redux
+- useState
+- useEffect
+- useParams
+- useNavigate
+- Responsive design
+- User auth
+- CRUD
+
 ## Functionalities In Project :
 * Authentication
 * Create Posts
