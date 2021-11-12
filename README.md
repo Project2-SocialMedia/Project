@@ -6,7 +6,7 @@
 </div>
 
 ## About Project :
-Project Name : We haven't decided yet :tw-1f606:
+Project Name : We haven't decided yet 😅
 
 Project type : Social Media Application
 ## Functionalities In Project :
