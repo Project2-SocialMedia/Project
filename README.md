@@ -1,5 +1,5 @@
 # Unit 2 Project
-## <p align="center">Used Technologies</p>
+### <p align="center">Used Technologies</p>
 <div align="center">
   
 [![](https://img.shields.io/badge/-NodeJS-33373F?logo=node.js&style=flat)](https://nodejs.org/en/) [![](https://img.shields.io/badge/-ReactJS-33373F?logo=react&style=flat)](https://reactjs.org/) [![](https://img.shields.io/badge/-ExpressJS-33373F?logo=express&style=flat)](https://expressjs.com/) [![](https://img.shields.io/badge/-MongoDB-33373F?logo=mongodb&style=flat)](https://www.mongodb.com/) [![](https://img.shields.io/badge/-Bootstrap-33373F?logo=bootstrap&style=flat)](https://getbootstrap.com/) [![](https://img.shields.io/badge/-Trello-33373F?logo=trello&style=flat)](https://trello.com) [![](https://img.shields.io/badge/-Figma-33373F?logo=figma&style=flat)](https://www.figma.com/)
