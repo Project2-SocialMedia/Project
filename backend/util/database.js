@@ -1,14 +1,9 @@
-//Import the mongoose module
-var mongoose = require('mongoose');
+const { MongoClient } = require("mongodb");
 
-//Set up default mongoose connection
-var mongoDB = 'mongodb://cluster0.qdmbx.mongodb.net/myFirstDatabase';
-mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
+// Replace the uri string with your MongoDB deployment's connection string.
+const uri =
+  "mongodb+srv://project_user:bgt55tgb@cluster0.qdmbx.mongodb.net?retryWrites=true&writeConcern=majority";
 
-//Get the default connection
-var db = mongoose.connection;
+const client = new MongoClient(uri);
 
-//Bind connection to error event (to get notification of connection errors)
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
-module.exports = db;
+module.exports = client;

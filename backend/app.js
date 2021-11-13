@@ -1,3 +1,3 @@
-const db = require("./util/database");
+const dbClient = require("./util/database");
 
-console.log ( db );
+
