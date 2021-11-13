@@ -42,8 +42,7 @@ async function auth (authType,payload){
                             username: payload.username,
                             email: payload.email,
                             password: hashedPassword,
-                            first_name: payload.firstName,
-                            last_name: payload.lastName
+                            name: payload.name,
                         }
                     )
                     if ( user ){
