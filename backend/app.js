@@ -3,12 +3,14 @@ const app = express();
 let cors = require('cors')
 let morgan = require('morgan');
 
+
 const auth = require('./routes/auth')
 const post = require('./routes/post')
 const comment = require('./routes/comment')
 const profile = require('./routes/profile')
 const like = require('./routes/postLike')
 const follow = require('./routes/follow')
+const block = require('./routes/blockUser')
 
 
 app.use(express.json());
@@ -23,6 +25,7 @@ app.use ( '/comment', comment )
 app.use ( '/profile', profile )
 app.use ( '/postLike', like )
 app.use ( '/follow', follow )
+app.use ( '/block', block )
 
 app.get('/', (request,response) => {
     response.send ("Home page")

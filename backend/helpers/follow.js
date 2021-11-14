@@ -24,7 +24,7 @@ async function followUser (method,payload){
 
             case "UNFOLLOW":
                 follow = await followers.deleteOne({follower: payload.follower})
-                   return follow === 1 ? "Deleted" : "Error";
+                   return follow === 1 ? "Unfollow" : "Error";
 
             default:
                 return null ;

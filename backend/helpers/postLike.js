@@ -24,7 +24,7 @@ async function likePost (method,payload){
 
             case "DELETE_LIKE":
                    postLike = await postLikes.deleteOne({_id: payload.id})
-                   return postLike === 1 ? "Deleted" : "Error";
+                   return postLike === 1 ? "Declike" : "Error";
 
             default:
                 return null ;
