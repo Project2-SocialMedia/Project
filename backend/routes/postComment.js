@@ -6,7 +6,6 @@ const commentController = require ("../controllers/postComment");
 // GET
 
 router.get ( '/', (request,response) => {
-    //const login = authController.login()
     response.send ( request.body );
 })
 
