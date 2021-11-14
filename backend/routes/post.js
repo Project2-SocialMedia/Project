@@ -2,11 +2,18 @@ const { request, response } = require('express');
 const express = require('express');
 const router = express.Router();
 const postController = require ("../controllers/post");
+
 // GET
 
 router.get ( '/', (request,response) => {
     //const login = authController.login()
     response.send ( request.body );
+})
+
+
+router.get ( '/getPost', async (request,response) => {
+    let post = await postController.getPost(request.body);
+    response.send ( post )
 })
 
 
