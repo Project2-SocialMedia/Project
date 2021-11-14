@@ -11,7 +11,7 @@ async function login ( username, password ){
             }).then(
                 (response) => {
                     if ( response ){
-                        if (response){
+                        if (response._id){
                             return {
                                 status: "ok",
                                 response: response
