@@ -5,6 +5,7 @@ let morgan = require('morgan');
 
 const auth = require('./routes/auth')
 const post = require('./routes/post')
+const like = require('./routes/postLike')
 
 app.use(express.json());
 app.use(cors())
@@ -14,6 +15,7 @@ app.use(morgan('dev'));
 
 app.use ( '/auth', auth )
 app.use ( '/post', post )
+app.use ( '/postLike', like )
 
 app.get('/', (request,response) => {
     response.send ("Home page")
