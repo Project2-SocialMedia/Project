@@ -1,6 +1,37 @@
 const postHelper = require ("../helpers/post");
 
 
+
+async function getPost ( query ){
+    if ( !query || query.length == 0 ) {
+        return { status: "error", response: "You must enter a query" }
+    }
+
+    return await postHelper("GET_POST",query).then(
+        (response) => {
+            if ( response ){
+                if (response){
+                    return {
+                        status: "ok",
+                        response: response
+                    }
+                }else{
+                    return {
+                        status: "error",
+                        response: response
+                    }
+                }
+            }else{
+                return {
+                    status: "error",
+                    response: "Check your post"
+                }
+            }
+        }
+    )
+}
+
+
 async function createPost ( post ){
     if ( !post.user || post.user == "" ) {
         return { status: "error", response: "You must enter a username" }
@@ -66,4 +97,4 @@ async function deletePost ( post ){
 }
 
 
-module.exports = { createPost:createPost, deletePost:deletePost }
+module.exports = { createPost:createPost, deletePost:deletePost, getPost:getPost}
