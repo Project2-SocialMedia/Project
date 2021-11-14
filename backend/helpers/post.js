@@ -10,6 +10,10 @@ async function post (method,payload){
         let post = null
 
         switch (method) {
+            case "GET_POST":
+                post = await posts.find( payload.query );  
+                return post ? post : "Error";
+
             case "CREATE_POST":
                 post = await posts.insertOne(
                     {
