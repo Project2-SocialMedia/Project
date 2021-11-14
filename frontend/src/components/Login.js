@@ -1,19 +1,30 @@
+import { useRef } from "react";
+const axios = require ('axios');
+
 export default function Login (){
+    const usernameInput = useRef(null);
+    const passwordInput = useRef(null);
+    const sendLoginRequest = () => {
+        axios.post('/auth/login',{
+            "username": usernameInput.current.value,
+            "password": passwordInput.current.value
+        }).then (
+            (response) => {
+                console.log(response)
+            }
+        )
+    }
     return (
         <div>
             <div className="mb-3">
-                <label for="usernameInput" className="form-label">User name</label>
-                <input type="text" className="form-control" id="usernameInput"></input>
+                <label htmlFor="usernameInput" className="form-label">User name</label>
+                <input ref={usernameInput} type="text" className="form-control" id="usernameInput"></input>
             </div>
             <div className="mb-3">
-                <label for="passwordInput" className="form-label">Password</label>
-                <input type="password" className="form-control" id="passwordInput"></input>
+                <label htmlFor="passwordInput" className="form-label">Password</label>
+                <input ref={passwordInput} type="password" className="form-control" id="passwordInput"></input>
             </div>
-            <div className="mb-3 form-check">
-                <input type="checkbox" className="form-check-input" id="rememberInput"></input>
-                <label className="form-check-label" for="rememberInput">Check me out</label>
-            </div>
-            <button className="btn btn-primary">Login</button>
+            <button className="btn btn-primary" onClick={ ()=> sendLoginRequest() }>Login</button>
         </div>
     );
 }

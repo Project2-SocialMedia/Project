@@ -1,6 +1,8 @@
 const authHelper = require ("../helpers/auth");
 
-async function login ( username, password ){
+async function login ( credeintals ){
+    let username = credeintals.username;
+    let password = credeintals.password;
     if ( username && username != "" ){
         if ( password && password != "" ){
             // Login and password ok lets check if there is a user in database 

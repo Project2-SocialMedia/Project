@@ -4,14 +4,21 @@ const authController = require ("../controllers/auth");
 // GET
 
 router.get ( '/', (request,response) => {
-    //const login = authController.login()
     response.send ( request.body );
 })
 
-router.get ( '/login', async (request,response) => {
-    let credentials = request.body;
-    let login = await authController.login(credentials.username, credentials.password);
-    response.send ( login )
+router.post ( '/login', async (request,response) => {
+    let login = await authController.login(request.body);
+    if ( login.status === "ok" ){
+        let token = "";
+        await require('crypto').randomBytes(48, function(ex, buf) {
+            token = buf.toString('base64').replace(/\//g,'_').replace(/\+/g,'-');
+            login.token = token;
+            response.send ( login );
+        })
+    }else{
+        response.send ( login );
+    }
 })
 
 // POST

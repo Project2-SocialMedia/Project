@@ -12,9 +12,11 @@ const like = require('./routes/postLike')
 const follow = require('./routes/follow')
 const block = require('./routes/blockUser')
 
-
+// app.use(cors(
+//     {origin: "localhost:3000"}
+// ));
 app.use(express.json());
-app.use(cors())
+
 app.use(morgan('dev'));
 
 // Use Routes
@@ -32,8 +34,8 @@ app.get('/', (request,response) => {
 })
 
 
-app.listen ( 8000, (errorCallback) => {
+app.listen ( 3001, (errorCallback) => {
     errorCallback 
     ? console.error( errorCallback )
-    : console.log ( `Server Started http://localhost:8000` )
+    : console.log ( `Server Started http://localhost:3001` )
 })

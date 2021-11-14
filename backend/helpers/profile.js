@@ -1,4 +1,4 @@
-const profile = require("../controllers/profile");
+//const profile = require("../controllers/profile");
 const dbClient = require("../util/database");
 
 async function profileMethod (method,payload){
