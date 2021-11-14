@@ -5,6 +5,8 @@ let morgan = require('morgan');
 
 const auth = require('./routes/auth')
 const post = require('./routes/post')
+const comment = require('./routes/comment')
+const profile = require('./routes/profile')
 
 app.use(express.json());
 app.use(cors())
@@ -14,6 +16,8 @@ app.use(morgan('dev'));
 
 app.use ( '/auth', auth )
 app.use ( '/post', post )
+app.use ( '/comment', comment )
+app.use ( '/profile', profile )
 
 app.get('/', (request,response) => {
     response.send ("Home page")
