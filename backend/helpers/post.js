@@ -22,13 +22,12 @@ async function post (method,payload){
                 return post ? post : "Error";
 
             case "DELETE_POST":
-                
-                break;
+                   post = await posts.deleteOne({_id: payload.id})
+                   return post === 1 ? "Deleted" : "Error";
+
             default:
-                break;
+                return null ;
         }
-
-
 
 
     } finally {
