@@ -1,5 +1,6 @@
 const dbClient = require("../util/database");
 const passwordHash = require('password-hash');
+const profileController = require ('../controllers/profile');
 
 async function auth (authType,payload){
     try {
@@ -46,6 +47,16 @@ async function auth (authType,payload){
                         }
                     )
                     if ( user ){
+                        let prof = await profileController.createProfile({
+                            userId: user.insertedId,
+                            avatar: "",
+                            birthday: "",
+                            bio: "",
+                            header: "",
+                            verfied: false,
+                            social: [],
+                            location: "",
+                        })
                         return user;
                     }else{
                         return "Ops";

@@ -12,17 +12,23 @@ router.get ( '/', (request,response) => {
 
 
 router.get ( '/getProfile', async (request,response) => {
-    let post = await profileController.getProfile(request.body);
-    response.send ( post )
+    let profile = await profileController.getProfile(request.body);
+    response.send ( profile )
 })
 
 
 // POST
 
-router.post ( '/createComment', async (request,response) => {
-    let post = await profileController.createProfile(request.body);
-    response.send ( post )
+router.post ( '/createProfile', async (request,response) => {
+    let profile = await profileController.createProfile(request.body);
+    response.send ( profile )
 })
 
+// PUT
+
+router.put ( '/updateProfile', async (request,response) => {
+    let profile = await profileController.updateProfile(request.body);
+    response.send ( profile )
+})
 
 module.exports = router;

@@ -1,4 +1,4 @@
-const commentHelper = require ("../helpers/comment");
+const commentHelper = require ("../helpers/postComment");
 
 
 

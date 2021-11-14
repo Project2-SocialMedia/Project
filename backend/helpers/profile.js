@@ -6,24 +6,21 @@ async function profileMethod (method,payload){
         const database = dbClient.db("project_db");
         const profiles = database.collection("profiles");
         let query = {}
-        switch (authType) {
+        switch (method) {
             case "GET_PROFILE":
                 query = { userId: payload.id };
                 profile = await profiles.findOne(query);
                 return profile;
             case "CREATE_PROFILE":
                 query = {
-                    $or:
-                    [
-                        { userId: payload.id },
-                    ]
+                    userId: payload.id
                 };
                 profile = await profiles.findOne(query);
                 if ( !profile ){
                     profile = await profiles.insertOne (
                         {
                             
-                            userId: payload.id,
+                            userId: payload.userId,
                             avatar: payload.avatar,
                             birthday: payload.birthday,
                             bio: payload.bio,
@@ -37,6 +34,14 @@ async function profileMethod (method,payload){
                 }else{
                     return "User already have a profile";
                 }
+            case "EDIT_PROFILE":
+                query = {
+                    userId: payload.id
+                };
+                update = {
+                    $set: payload.updatedInfo,
+                }
+                profile = await profiles.updateOne( query, update );
             default:
                 return null;
         }

@@ -61,4 +61,34 @@ async function createProfile ( profile ){
     )
 }
 
-module.exports = { getProfile:getProfile, createProfile:createProfile }
+async function updateProfile ( profile ){
+    if ( !profile.id || profile.id == "" ) {
+        return { status: "error", response: "You must enter a user id" }
+    }
+    
+    return await profileHelper("UPDATE_PROFILE",profile).then(
+        (response) => {
+            if ( response ){
+                if (response){
+                    return {
+                        status: "ok",
+                        response: response
+                    }
+                }else{
+                    return {
+                        status: "error",
+                        response: response
+                    }
+                }
+            }else{
+                return {
+                    status: "error",
+                    response: "Check your profile"
+                }
+            }
+        }
+    )
+}
+
+
+module.exports = { getProfile:getProfile, createProfile:createProfile, updateProfile:updateProfile }

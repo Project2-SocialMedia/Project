@@ -5,7 +5,7 @@ let morgan = require('morgan');
 
 const auth = require('./routes/auth')
 const post = require('./routes/post')
-const comment = require('./routes/comment')
+const comment = require('./routes/postComment')
 const profile = require('./routes/profile')
 const like = require('./routes/postLike')
 
