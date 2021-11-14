@@ -6,7 +6,6 @@ const postController = require ("../controllers/post");
 // GET
 
 router.get ( '/', (request,response) => {
-    //const login = authController.login()
     response.send ( request.body );
 })
 
