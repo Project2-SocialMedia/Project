@@ -13,6 +13,17 @@ export default function Login (){
                 if (!localStorage.getItem("token")){
                     localStorage.setItem("token",response.data.token)
                 }
+                axios.post('/sessions/updateSession',{ 
+                    token: localStorage.getItem("token"),
+                    updateInfo: { 
+                        "userId": login.response._id,
+                    },
+                }).then (
+                    (response) => {
+                        
+                        //logged in
+                    }
+                )
             }
         )
     }

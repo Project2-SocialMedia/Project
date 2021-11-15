@@ -16,14 +16,6 @@ router.post ( '/login', async (request,response) => {
         await require('crypto').randomBytes(48, function(ex, buf) {
             token = buf.toString('base64').replace(/\//g,'_').replace(/\+/g,'-');
             login.token = token;
-            sessionF("UPDATE", 
-                { 
-                    token: token,
-                    updateInfo: { 
-                        "userId": login.response._id,
-                    },
-                }
-            );
             response.send ( login );
         })
     }else{
