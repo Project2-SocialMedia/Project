@@ -1,6 +1,6 @@
 const dbClient = require("../util/database");
 
-async function session (authType,payload){
+async function sessionF (authType,payload){
     try {
         await dbClient.connect();
         const database = dbClient.db("project_db");
@@ -49,4 +49,4 @@ async function session (authType,payload){
     }
 }
 
-module.exports = session;
+module.exports = sessionF;

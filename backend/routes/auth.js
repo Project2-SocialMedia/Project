@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const authController = require ("../controllers/auth");
-const session = require('../helpers/sessions');
+const sessionF = require('../helpers/sessions');
 
 // GET
 
@@ -16,8 +16,8 @@ router.post ( '/login', async (request,response) => {
         await require('crypto').randomBytes(48, function(ex, buf) {
             token = buf.toString('base64').replace(/\//g,'_').replace(/\+/g,'-');
             login.token = token;
-            if ( session( "GET", { token: token } ) ){
-                session("UPDATE", 
+            if ( sessionF( "GET", { token: token } ) && sessionF( "GET", { token: token } ).token ){
+                sessionF("UPDATE", 
                     { 
                         token: token,
                         updateInfo: { 
@@ -26,7 +26,7 @@ router.post ( '/login', async (request,response) => {
                     }
                 );
             }else{
-                session("CREATE", 
+                sessionF("CREATE", 
                     { 
                         token: token,
                         updateInfo: { 
