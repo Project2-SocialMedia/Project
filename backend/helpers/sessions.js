@@ -20,6 +20,7 @@ async function sessionF (sessionMethod,payload){
                 dbSession = await sessions.deleteOne ( query );
                 return dbSession;
             case "UPDATE":
+                console.log(payload);
                 query = {
                     token: payload.token
                 };

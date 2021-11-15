@@ -13,10 +13,11 @@ export default function Login (){
                 if (!localStorage.getItem("token")){
                     localStorage.setItem("token",response.data.token)
                 }
+                //console.log(response)
                 axios.post('/sessions/updateSession',{ 
                     token: localStorage.getItem("token"),
                     updateInfo: { 
-                        "userId": login.response._id,
+                        "userId": response.data.response._id,
                     },
                 }).then (
                     (response) => {
