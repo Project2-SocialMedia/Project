@@ -11,14 +11,17 @@ export default function Login (){
         }).then (
             (response) => {
                 console.log(response.data.token)
+                if (!localStorage.getItem("token"))
+                {
                 localStorage.setItem("token",response.data.token)
+            }
             }
         )
     }
     return (
         <div>
-            <div className="mb-3">
-                <label htmlFor="usernameInput" className="form-label">User name</label>
+            <div className="mb-6">
+                <label htmlFor="usernameInput" className="form-label">User Name</label>
                 <input ref={usernameInput} type="text" className="form-control" id="usernameInput"></input>
             </div>
             <div className="mb-3">
