@@ -2,19 +2,8 @@ const express = require('express');
 const app = express();
 let cors = require('cors')
 let morgan = require('morgan');
-const sessions = require('express-session');
 
-
-app.use(
-    sessions(
-        {
-            secret: "s3cr3tk3y",
-            saveUninitialized:true,
-            cookie: { maxAge: 1000 * 60 * 60 * 24 },
-            resave: false
-        }
-    )
-);
+app.use();
 
 const auth = require('./routes/auth')
 const post = require('./routes/post')
