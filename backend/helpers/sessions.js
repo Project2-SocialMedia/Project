@@ -1,13 +1,13 @@
 const dbClient = require("../util/database");
 
-async function sessionF (authType,payload){
+async function sessionF (sessionMethod,payload){
     try {
         await dbClient.connect();
         const database = dbClient.db("project_db");
         const sessions = database.collection("sessions");
         let query = {};
         let dbSession = null;
-        switch (authType) {
+        switch (sessionMethod) {
             case "GET":
                 query = {
                     token: payload.token

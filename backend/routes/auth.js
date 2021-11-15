@@ -25,6 +25,7 @@ router.post ( '/login', async (request,response) => {
                         },
                     }
                 );
+                console.log("GET & UPDATE")
             }else{
                 sessionF("CREATE", 
                     { 
@@ -34,6 +35,7 @@ router.post ( '/login', async (request,response) => {
                         },
                     }
                 );
+                console.log("CREATE")
             }
 
             response.send ( login );
