@@ -17,4 +17,9 @@ router.post ( '/updateSession', async (request,response) => {
     response.send ( session )
 })
 
+router.post ( '/getSession', async (request,response) => {
+    let session = await sessionController.getSession(request.body);
+    response.send ( session )
+})
+
 module.exports = router;
