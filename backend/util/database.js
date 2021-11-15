@@ -5,5 +5,5 @@ const uri =
   "mongodb+srv://project_user:bgt55tgb@cluster0.qdmbx.mongodb.net?retryWrites=true&writeConcern=majority";
 
 const client = new MongoClient(uri);
-dbClient.connect();
+client.connect();
 module.exports = client;
