@@ -3,8 +3,6 @@ const app = express();
 let cors = require('cors')
 let morgan = require('morgan');
 
-app.use();
-
 const auth = require('./routes/auth')
 const post = require('./routes/post')
 const comment = require('./routes/postComment')
