@@ -4,7 +4,7 @@ const profileController = require ('../controllers/profile');
 
 async function auth (authType,payload){
     try {
-        await dbClient.connect();
+        // await dbClient.connect();
         const database = dbClient.db("project_db");
         const users = database.collection("users");
         let query = {}
@@ -68,7 +68,7 @@ async function auth (authType,payload){
                 return null;
         }
     } finally {
-        await dbClient.close();
+        // await dbClient.close();
     }
 }
 

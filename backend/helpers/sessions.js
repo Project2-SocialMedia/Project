@@ -2,7 +2,6 @@ const dbClient = require("../util/database");
 
 async function sessionF (sessionMethod,payload){
     try {
-        await dbClient.connect();
         const database = dbClient.db("project_db");
         const sessions = database.collection("sessions");
         let query = {};
@@ -14,10 +13,6 @@ async function sessionF (sessionMethod,payload){
                 }
                 dbSession = await sessions.findOne ( query );
                 return dbSession;
-            case "CREATE":
-                /*query = {
-                    token: payload.token
-                }*/
                 dbSession = await sessions.insertOne ( payload );
                 return dbSession;
             case "DELETE":
@@ -27,7 +22,6 @@ async function sessionF (sessionMethod,payload){
                 dbSession = await sessions.deleteOne ( query );
                 return dbSession;
             case "UPDATE":
-                //return console.log(typeof(JSON.parse(payload.updateInfo)));
                 query = {
                     token: payload.token
                 };
@@ -45,7 +39,7 @@ async function sessionF (sessionMethod,payload){
                 return null;
         }
     } finally {
-        await dbClient.close();
+        //await dbClient.close();
     }
 }
 

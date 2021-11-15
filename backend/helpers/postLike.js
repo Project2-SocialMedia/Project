@@ -3,7 +3,7 @@ const dbClient = require("../util/database");
 
 async function likePost (method,payload){
     try {
-        await dbClient.connect();
+        // await dbClient.connect();
         const database = dbClient.db("project_db");
         const postLikes = database.collection("posts_likes");
 
@@ -32,7 +32,7 @@ async function likePost (method,payload){
 
 
     } finally {
-        await dbClient.close();
+        // await dbClient.close();
     }
 }
 

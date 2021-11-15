@@ -3,7 +3,7 @@ const dbClient = require("../util/database");
 
 async function profileMethod (method,payload){
     try {
-        await dbClient.connect();
+        // await dbClient.connect();
         const database = dbClient.db("project_db");
         const profiles = database.collection("profiles");
         let query = {}
@@ -70,7 +70,7 @@ async function profileMethod (method,payload){
                 return null;
         }
     } finally {
-        await dbClient.close();
+        // await dbClient.close();
     }
 }
 

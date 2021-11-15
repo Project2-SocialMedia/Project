@@ -3,7 +3,7 @@ const dbClient = require("../util/database");
 
 async function post (method,payload){
     try {
-        await dbClient.connect();
+        // await dbClient.connect();
         const database = dbClient.db("project_db");
         const posts = database.collection("posts");
         let query = {}
@@ -35,7 +35,7 @@ async function post (method,payload){
 
 
     } finally {
-        await dbClient.close();
+        // await dbClient.close();
     }
 }
 

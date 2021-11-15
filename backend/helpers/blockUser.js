@@ -3,7 +3,7 @@ const dbClient = require("../util/database");
 
 async function blockUsers (method,payload){
     try {
-        await dbClient.connect();
+        // await dbClient.connect();
         const database = dbClient.db("project_db");
         const blockUser = database.collection("block_User");
 
@@ -32,7 +32,7 @@ async function blockUsers (method,payload){
 
 
     } finally {
-        await dbClient.close();
+        // await dbClient.close();
     }
 }
 

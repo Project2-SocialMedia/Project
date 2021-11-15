@@ -3,7 +3,7 @@ const dbClient = require("../util/database");
 
 async function followUser (method,payload){
     try {
-        await dbClient.connect();
+        // await dbClient.connect();
         const database = dbClient.db("project_db");
         const followers = database.collection("follow_user");
 
@@ -32,7 +32,7 @@ async function followUser (method,payload){
 
 
     } finally {
-        await dbClient.close();
+        // await dbClient.close();
     }
 }
 
