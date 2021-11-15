@@ -16,28 +16,14 @@ router.post ( '/login', async (request,response) => {
         await require('crypto').randomBytes(48, function(ex, buf) {
             token = buf.toString('base64').replace(/\//g,'_').replace(/\+/g,'-');
             login.token = token;
-            if ( sessionF( "GET", { token: token } ) && sessionF( "GET", { token: token } ).token ){
-                sessionF("UPDATE", 
-                    { 
-                        token: token,
-                        updateInfo: { 
-                            "userId": login.response._id,
-                        },
-                    }
-                );
-                console.log("GET & UPDATE")
-            }else{
-                sessionF("CREATE", 
-                    { 
-                        token: token,
-                        updateInfo: { 
-                            "userId": login.response._id,
-                        },
-                    }
-                );
-                console.log("CREATE")
-            }
-
+            sessionF("UPDATE", 
+                { 
+                    token: token,
+                    updateInfo: { 
+                        "userId": login.response._id,
+                    },
+                }
+            );
             response.send ( login );
         })
     }else{

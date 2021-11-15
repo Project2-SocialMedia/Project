@@ -10,11 +10,9 @@ export default function Login (){
             "password": passwordInput.current.value
         }).then (
             (response) => {
-                console.log(response.data.token)
-                if (!localStorage.getItem("token"))
-                {
-                localStorage.setItem("token",response.data.token)
-            }
+                if (!localStorage.getItem("token")){
+                    localStorage.setItem("token",response.data.token)
+                }
             }
         )
     }

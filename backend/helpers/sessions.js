@@ -13,8 +13,6 @@ async function sessionF (sessionMethod,payload){
                 }
                 dbSession = await sessions.findOne ( query );
                 return dbSession;
-                dbSession = await sessions.insertOne ( payload );
-                return dbSession;
             case "DELETE":
                 query = {
                     token: payload.token
@@ -33,7 +31,7 @@ async function sessionF (sessionMethod,payload){
                     const [ key, value ] = entry;
                     update.$set[key] = value;
                 })
-                dbSession = await sessions.updateOne( query, update );
+                dbSession = await sessions.updateOne( query, update, { upsert: true } );
                 return dbSession;
             default:
                 return null;
