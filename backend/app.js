@@ -23,6 +23,7 @@ const profile = require('./routes/profile')
 const like = require('./routes/postLike')
 const follow = require('./routes/follow')
 const block = require('./routes/blockUser')
+const sessions = require('./routes/sessions')
 
 app.use(express.json());
 
@@ -37,6 +38,7 @@ app.use ( '/profile', profile )
 app.use ( '/postLike', like )
 app.use ( '/follow', follow )
 app.use ( '/block', block )
+app.use ( '/sessions', sessions )
 
 app.get('/', (request,response) => {
     response.send ("Home page")
