@@ -2,7 +2,7 @@ import { createStore, combineReducers } from "redux";
 import authenticationReducer from "./auth";
 
 const reducers = combineReducers({ 
-    auth: authenticationReducer
+    authenticationReducer
 });
 const store = createStore(reducers);
 

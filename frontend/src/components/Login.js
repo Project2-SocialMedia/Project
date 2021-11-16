@@ -1,5 +1,6 @@
 import { useRef } from "react";
 const axios = require ('axios');
+const auth = require('../middlewares/auth');
 
 export default function Login (){
     const usernameInput = useRef(null);
@@ -13,7 +14,6 @@ export default function Login (){
                 if (!localStorage.getItem("token")){
                     localStorage.setItem("token",response.data.token)
                 }
-                //console.log(response)
                 axios.post('/sessions/updateSession',{ 
                     token: localStorage.getItem("token"),
                     updateInfo: { 
@@ -22,7 +22,6 @@ export default function Login (){
                 }).then (
                     (response) => {
                         
-                        //logged in
                     }
                 )
             }

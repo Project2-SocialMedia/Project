@@ -6,7 +6,6 @@ const sessionController = require ("../controllers/sessions");
 // GET
 
 router.get ( '/', (request,response) => {
-    //const login = authController.login()
     response.send ( request.body );
 })
 
@@ -17,8 +16,8 @@ router.post ( '/updateSession', async (request,response) => {
     response.send ( session )
 })
 
-router.post ( '/getSession', async (request,response) => {
-    let session = await sessionController.getSession(request.body);
+router.get ( '/getSession', async (request,response) => {
+    let session = await sessionController.getSession(request.query);
     response.send ( session )
 })
 

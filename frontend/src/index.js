@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Navbar from './components/Navbar';
-import Main from './components/Main';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux'
-import store from './reducers/store'
+import { Provider } from 'react-redux';
+import store from './reducers/store';
+import App from './app';
 
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<Navbar />
-			<Main />
+			<App />
 		</Provider>
 	</React.StrictMode>,
 	document.getElementById('root')
