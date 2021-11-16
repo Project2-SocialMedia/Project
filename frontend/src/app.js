@@ -15,7 +15,6 @@ export default function App (){
 			isAuthorized: state.authenticationReducer.userId,
 		};
 	});
-    const [userId, setUserId ] = useState ();
 
     useEffect(() => {
         auth.getUserId(localStorage.getItem("token")).then ( (id) => {
