@@ -1,37 +1,39 @@
+import { useDispatch, useSelector } from "react-redux";
+import { useRef } from "react";
 const axios = require ('axios');
+
 
 export default function CreatePost (){
 
+  const contentInput = useRef("");
+
+  const state = useSelector((state) => {
+		return {
+			isAuthorized: state.authenticationReducer.userId,
+		};
+	});
+
 
     const addPost = () => {
+      if (state.isAuthorized){
         axios.post("/post/createPost",{
- 
-        }  
+          user : state.isAuthorized,
+          content : contentInput.current.value,
+          media :"nn"
+        }).then (
+          (response) => {
+            console.log("Add Post: ", response.data);
+          }
         )
-    }
+    }}
 
 
 
-return(
-    
-        <div class="modal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+  return(    
+    <div class="form-floating">
+        <textarea ref={contentInput} class="form-control" placeholder="Leave a Post here" id="floatingTextarea2"></textarea>
+        <label for="floatingTextarea2">Post</label>
+        <button onClick= { () => addPost() }>Add</button>
     </div>
-  </div>
-</div>
-
 )
-
 }

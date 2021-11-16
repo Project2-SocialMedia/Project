@@ -12,7 +12,7 @@ router.get ( '/', (request,response) => {
 
 
 router.get ( '/getProfile', async (request,response) => {
-    let profile = await profileController.getProfile(request.body);
+    let profile = await profileController.getProfile(request.query);
     response.send ( profile )
 })
 

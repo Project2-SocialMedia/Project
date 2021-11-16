@@ -11,7 +11,7 @@ router.get ( '/', (request,response) => {
 
 
 router.get ( '/getPost', async (request,response) => {
-    let post = await postController.getPost(request.body);
+    let post = await postController.getPost(request.query);
     response.send ( post )
 })
 

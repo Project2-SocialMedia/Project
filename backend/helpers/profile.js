@@ -7,10 +7,11 @@ async function profileMethod (method,payload){
         const database = dbClient.db("project_db");
         const profiles = database.collection("profiles");
         let query = {}
+        let profile;
         switch (method) {
             case "GET_PROFILE":
-                query = { userId: payload.id };
-                profile = await profiles.findOne(query);
+                query = { userId: parseInt(payload.id) };
+                profile = await profiles.findOne( query );
                 return profile;
             case "CREATE_PROFILE":
                 query = {
@@ -20,7 +21,6 @@ async function profileMethod (method,payload){
                 if ( !profile ){
                     profile = await profiles.insertOne (
                         {
-                            
                             userId: payload.userId,
                             avatar: payload.avatar,
                             birthday: payload.birthday,

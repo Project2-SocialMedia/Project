@@ -11,7 +11,7 @@ async function post (method,payload){
 
         switch (method) {
             case "GET_POST":
-                post = await posts.find( payload.query );  
+                post = await posts.find( {"_id": { $exists: true }} );  
                 return post ? post : "Error";
 
             case "CREATE_POST":
