@@ -17,7 +17,17 @@ export default function DisplayPosts (){
     display();
      return(
          <div>
-
+                <div class="card text-center">
+                    <div class="card-header">
+                        Post
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">content</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        2 days ago
+                    </div>
+               </div>
          </div>
      )
 }

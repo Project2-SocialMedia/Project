@@ -16,6 +16,7 @@ export default function DisplayProfile (){
     }, [])
      return(
          <div>
+          <h2>HHH</h2>
 
          </div>
      )
