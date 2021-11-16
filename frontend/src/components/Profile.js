@@ -1,22 +1,24 @@
-import { useEffect } from 'react';
-import { useParams } from "react-router";
+import { useEffect, useState } from 'react';
+import { useParams } from "react-router-dom";
 const axios = require ('axios');
 
-export default function DisplayProfile (){
-    const { ID } = useParams();
+export default function DisplayProfile (props){
+    const [ profileInfo, setProfileInfo ] = useState ();
+    const { id } = useParams();
     useEffect(() => {
-        
-        axios.get("/profile/getProfile", {params:
-            {
-                id: ID,
-            }}).then((response) => {
-                console.log(response.data);
-              });
+        axios.get("/profile/getProfile", {
+            params:
+                {
+                    "id": id,
+                }
+        }).then((response) => {
+            setProfileInfo(response.data);
+        });
 
     }, [])
      return(
-         <div>
+        <div>
 
-         </div>
+        </div>
      )
 }

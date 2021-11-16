@@ -6,8 +6,11 @@ import Navbar from "./components/Navbar";
 import DisplayPosts from "./components/Post";
 import DisplayProfile from "./components/Profile";
 import { authentication } from "./reducers/auth";
-import { Switch, Router, Route, useParams } from 'react-router';
-
+import {  BrowserRouter as Router,
+	Routes,
+	Route,
+	Link,
+	useParams} from "react-router-dom"
 const auth = require ('./middlewares/auth');
 
 
@@ -26,20 +29,19 @@ export default function App (){
         })
     },[])
     return (
-        
+        <Router>
         <div>
             <Navbar />
             <Main />
             <CreatePost/>
             <h1>{state.isAuthorized ? state.isAuthorized : "Nah"}</h1>
             
-            <Router>
-  <Switch>
-  <Route path="/profile/{id}" element={DisplayProfile} />
-  </Switch>
-</Router>
+            <Routes>
+                <Route path="/profile/:id" element={<DisplayProfile/>} />
+            </Routes>
 
 
         </div>
+        </Router>
     );
 }
