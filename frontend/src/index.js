@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import store from './reducers/store';
 import App from './app';
 
+
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
