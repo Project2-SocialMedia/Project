@@ -7,10 +7,13 @@ async function profileMethod (method,payload){
         const database = dbClient.db("project_db");
         const profiles = database.collection("profiles");
         let query = {}
+        let profile;
         switch (method) {
             case "GET_PROFILE":
-                query = { userId: payload.id };
-                profile = await profiles.findOne(query);
+                console.log(payload.id);
+                query = { "userId": payload.id };
+                profile = await profiles.findOne({userId: payload.id});
+                console.log(profile);
                 return profile;
             case "CREATE_PROFILE":
                 query = {
