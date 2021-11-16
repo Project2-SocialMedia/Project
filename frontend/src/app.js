@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import CreatePost from "./components/CreatePost";
 import Main from "./components/Main";
 import Navbar from "./components/Navbar";
-import DisplayPosts from "./components/Post";
 import DisplayProfile from "./components/Profile";
 import { authentication } from "./reducers/auth";
 import {  BrowserRouter as Router,
@@ -32,12 +30,9 @@ export default function App (){
         <Router>
         <div>
             <Navbar />
-            <Main />
-            <CreatePost/>
-            <h1>{state.isAuthorized ? state.isAuthorized : "Nah"}</h1>
-            
             <Routes>
-                <Route path="/profile/:id" element={<DisplayProfile/>} />
+                <Route path="/" element={<Main/>} />
+                <Route path="/profile/:username" element={<DisplayProfile/>} />
             </Routes>
 
 

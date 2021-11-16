@@ -10,7 +10,7 @@ async function profileMethod (method,payload){
         let profile;
         switch (method) {
             case "GET_PROFILE":
-                query = { userId: parseInt(payload.id) };
+                query = { username: payload.username };
                 profile = await profiles.findOne( query );
                 return profile;
             case "CREATE_PROFILE":
@@ -22,6 +22,8 @@ async function profileMethod (method,payload){
                     profile = await profiles.insertOne (
                         {
                             userId: payload.userId,
+                            username: payload.username,
+                            name: payload.name,
                             avatar: payload.avatar,
                             birthday: payload.birthday,
                             bio: payload.bio,

@@ -49,6 +49,8 @@ async function auth (authType,payload){
                     if ( user ){
                         let prof = await profileController.createProfile({
                             userId: user.insertedId,
+                            username: payload.username,
+                            name: payload.name,
                             avatar: "",
                             birthday: "",
                             bio: "",
