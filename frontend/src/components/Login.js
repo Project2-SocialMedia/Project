@@ -1,9 +1,14 @@
 import { useRef } from "react";
 import '../app.css'
+import { useDispatch, useSelector } from "react-redux";
+import { authentication } from "../reducers/auth";
+
 const axios = require ('axios');
 const auth = require('../middlewares/auth');
 
 export default function Login (){
+    const dispatch = useDispatch();
+
     const usernameInput = useRef(null);
     const passwordInput = useRef(null);
     const sendLoginRequest = () => {
@@ -21,8 +26,10 @@ export default function Login (){
                         "userId": response.data.response._id,
                     },
                 }).then (
-                    (response) => {
-                        
+                    (rsp) => {
+                        if ( response.data.status === "ok" ) {
+                            dispatch(authentication.saveAuth(response.data.response._id));
+                        }
                     }
                 )
             }
@@ -32,7 +39,7 @@ export default function Login (){
       <div>
 
 {/* <i class="fas fa-user-lock" data-bs-toggle="modal" data-bs-target="loginModal"></i> */}
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" onClick={()=>alert("w")} data-bs-target="#loginModal">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
   Login
 </button>
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
