@@ -1,24 +1,42 @@
-.background {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
-
+body{
+  background-color:  rgb(70, 69, 69);
+}
+.App {
+  padding: 20px;
+  margin: 20px;
+  
 }
 
+.background {
+margin-left: 1050px;
+  }
+
 .login-container {
-    background-color: grey;
-    width: 400px;
-    height: 400px;
+    margin-left: 100px;
+    width: 250px;
+    height: 300px;
     padding: 10px;
 }
 
 .btn{
   size: 100px;
   color: #fff;
-  background-color: #503581;
+  background-color: #644897;
   border-color: #673ab7;  
+}
+
+.yellow{
+  font-size: 30px;
+  color: yellow
+  }
+
+.icon{
+  font-size: 35px;
+}
+
+.post{
+ 
+
 }
 
 
