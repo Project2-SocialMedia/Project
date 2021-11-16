@@ -16,6 +16,9 @@ export default function Navbar (){
               </li>
             </ul>
           </div>
+          <div class="d-flex">
+            <button className="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+          </div>
         </div>
       </nav>
     )

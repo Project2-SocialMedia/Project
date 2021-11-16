@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
 import "../app.css"
-import { FaHeart } from "react-icons/fa";
 const axios = require ('axios');
 
 
@@ -36,7 +35,7 @@ export default function CreatePost (){
     <div class="form-floating">
         <textarea ref={contentInput} class="form-control" placeholder="Leave a Post here" id="floatingTextarea2"></textarea>
         <label for="floatingTextarea2">Post</label>
-        <FaHeart className='yellow'/> 
+        
         <i class="far fa-plus-circle"  onClick= { () => addPost() }>Add</i>
         {/* <button className="btn">Add</button> */}
     </div>

@@ -5,8 +5,8 @@ import CreatePost from "./CreatePost";
 export default function Main (){
     return (
         <div>
-        <CreatePost/>
-        <Login />
+            <CreatePost/>
+            <Login />
         </div>
     )
 }
