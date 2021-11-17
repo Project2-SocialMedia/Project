@@ -55,17 +55,17 @@ export default function Login (){
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="usernameInput" class="form-label">User Name</label>
-                            <input type="text" class="form-control" id="usernameInput"></input>
+                            <input ref={usernameInput} type="text" class="form-control" id="usernameInput"></input>
                         </div>
                         <div class="mb-3">
                             <label for="passwordInput" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="passwordInput"></input>
+                            <input ref={passwordInput} type="password" class="form-control" id="passwordInput"></input>
                         </div>
                         <small>Don't have an account yet? <p className="d-inline text-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Sign Up</p></small>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Login</button>
+                        <button type="button" class="btn btn-primary" onClick={() => sendLoginRequest() }>Login</button>
                     </div>
                 </div>
             </div>

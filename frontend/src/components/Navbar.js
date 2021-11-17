@@ -1,4 +1,29 @@
+import { useDispatch, useSelector } from "react-redux";
+import { authentication } from "../reducers/auth";
+
+const axios = require ('axios');
+
 export default function Navbar (){
+	const dispatch = useDispatch();
+
+	const state = useSelector((state) => {
+		return {
+			isAuthorized: state.authenticationReducer.userId,
+		};
+	});
+
+	const sendLogoutRequest = () => {
+		axios.delete('/sessions/deleteSession',{
+			data:
+			{
+				"token": localStorage.getItem("token")
+			}
+		}).then (
+			(response) => {
+				dispatch(authentication.saveAuth(null));
+			}
+		)
+	}
     return (
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
@@ -17,7 +42,11 @@ export default function Navbar (){
             </ul>
           </div>
           <div class="d-flex">
-            <button className="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+            {
+              state.isAuthorized 
+              ? <button className="btn btn-outline-danger" type="button" onClick={ () => sendLogoutRequest() }>Logout</button>
+              : <button className="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+            }
           </div>
         </div>
       </nav>

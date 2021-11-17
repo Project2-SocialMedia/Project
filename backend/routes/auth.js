@@ -27,7 +27,8 @@ router.post ( '/login', async (request,response) => {
 
 router.post ( '/register', async (request,response) => {
     let register = await authController.register(request.body);
-    response.send ( register )
+    response.send ( register );
 })
+
 
 module.exports = router;

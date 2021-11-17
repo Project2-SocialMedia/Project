@@ -83,8 +83,33 @@ async function register ( credeintals ){
     )
 }
 
-function logout (){
-
+async function logout (){
+    return await authHelper("LOGOUT",
+    {
+        username: username,
+        password: password
+    }).then(
+        (response) => {
+            if ( response ){
+                if (response._id){
+                    return {
+                        status: "ok",
+                        response: response
+                    }
+                }else{
+                    return {
+                        status: "error",
+                        response: response
+                    }
+                }
+            }else{
+                return {
+                    status: "error",
+                    response: "Check your credeintals"
+                }
+            }
+        }
+    )
 }
 
 module.exports = { login: login, register: register, logout: logout }

@@ -11,9 +11,9 @@ async function post (method,payload){
 
         switch (method) {
             case "GET_POST":
-                post = await posts.find( {"_id": { $exists: true }} );  
-                return post ? post : "Error";
-
+                post = await posts.find({});  
+                console.log(post)
+                return post ? post.toArray() : "Error";
             case "CREATE_POST":
                 post = await posts.insertOne(
                     {

@@ -22,7 +22,7 @@ export default function DisplayProfile (){
     }, [])
      return(
         <div>
-        <h1>{profileInfo._id}</h1>
+            <h1>{profileInfo._id}</h1>
         </div>
     )
 }
