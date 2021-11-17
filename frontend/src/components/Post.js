@@ -46,15 +46,12 @@ export default function DisplayPosts (){
                 postsArray?.map ( (post) => {
                     return (
                         <div className= "post">
-                            <div class="card text-center">
+                            <div class="card text-center col-6 mx-auto m-5">
                                 <div class="card-header">
                                     {post.user}
                                 </div>
                                 <div class="card-body">
                                     <p class="card-text">{post.content}</p>
-                                </div>
-                                <div class="card-footer text-muted">
-                                    Footer
                                 </div>
                             </div>
                         </div>

@@ -5,11 +5,8 @@ import DisplayPosts from "./Post";
 
 export default function Main (){
     return (
-        <div>
-        <DisplayPosts/>
-            <CreatePost/>
-            <Login />
-            
-        </div>
+        
+        <CreatePost />
+
     )
 }

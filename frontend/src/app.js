@@ -11,6 +11,7 @@ import {  BrowserRouter as Router,
 	useParams} from "react-router-dom"
 import DisplayPosts from './components/Post';
 import "./app.css"
+import Header from "./components/Header";
 
 const auth = require ('./middlewares/auth');
 
@@ -30,12 +31,26 @@ export default function App (){
         })
     },[])
     return (
-        <Router>
+                    <Router>
+
+            <Header />
             <Navbar />
-            <Routes>
+            <div id="content-page" class="content-page">
+            <div class="wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 row m-0 p-0 mx-auto">
+                    <Routes>
                 <Route path="/" element={<Main/>} />
                 <Route path="/profile/:username" element={<DisplayProfile/>} />
-            </Routes>
-        </Router>
+                </Routes>
+                </div>
+                </div>
+            </div>    
+        </div>
+        </div>
+            
+            </Router>
+
     );
 }
