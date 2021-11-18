@@ -14,24 +14,24 @@ Project type : Social Media Application
 
 - Development branch ☑️
 - Readme ☑️
-- Create wireframe 
-- As a user you have to navigate some information display it 
+- Create wireframe ☑️
+- As a user you have to navigate some information display it ☑️
 - ReactJS ☑️
 - Express ☑️
 - Node ☑️
-- Axios
-- Redux
-- useState
-- useEffect
-- useParams
-- useNavigate
-- Responsive design
-- User auth
-- CRUD
+- Axios ☑️
+- Redux ☑️
+- useState ☑️
+- useEffect ☑️
+- useParams ☑️
+- useNavigate ☑️
+- Responsive design ☑️
+- User auth ☑️
+- CRUD ☑️
 
 ## Functionalities In Project :
-* Authentication
-* Create Posts
+* Authentication ☑️
+* Create Posts ☑️
 * React With Posts ( Likes & Comments )
 * React With Users ( Follow & Unfollow )
 * Edit Profile ( Name, Avatar, Username, Password, E-Mail, Profile Header )
