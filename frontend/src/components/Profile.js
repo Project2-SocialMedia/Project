@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
+import ProfileAbout from './profile/about';
+import EditProfile from './profile/edit';
 import ProfileHeader from './profile/header';
 import ProfilePosts from './profile/posts';
 
@@ -49,7 +51,15 @@ export default function DisplayProfile (){
      return(
         <div>
             <ProfileHeader profile={profileInfo} posts={profilePosts}/>
-            <ProfilePosts posts={profilePosts} />
+            <EditProfile profile={profileInfo} />
+            <div className="row">
+                <div className="col-lg-4">
+                    <ProfileAbout profile={profileInfo} />
+                </div>
+                <div className="col-lg-8">
+                    <ProfilePosts posts={profilePosts} />
+                </div>
+            </div>
         </div>
     )
 }

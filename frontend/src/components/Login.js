@@ -64,7 +64,7 @@ export default function Login (){
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" onClick={() => sendLoginRequest() }>Login</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={() => sendLoginRequest() }>Login</button>
                     </div>
                 </div>
             </div>

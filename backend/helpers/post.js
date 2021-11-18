@@ -14,11 +14,10 @@ async function post (method,payload){
                 if (payload.fillter === "all" ){
                     post = await posts.find({}).sort( { "date": -1 } );
                 }else if ( payload.fillter === "user" ){
-                    //let tmpUser = JSON.parse(payload.profile);
-                    console.log(payload.profile)
-                    post = await posts.find({ 'user.userId': 6}).sort( { "date": -1 } );
+                    post = await posts.find({ 'user.userId': parseInt(payload.profile)}).sort( { "date": -1 } );
                 }
                 return post ? post.toArray() : "Error";
+                
             case "CREATE_POST":
                 post = await posts.insertOne(
                     {
