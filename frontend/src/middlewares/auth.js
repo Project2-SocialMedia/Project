@@ -8,7 +8,19 @@ async function getUserId (token){
     }).then (
         (response) => {
             if ( response ){
-                return response.data.response.userId;
+                return axios.get("/profile/getProfile", {
+                    params:
+                        {
+                            "id": response.data.response.userId,
+                        }
+                }).then((rss) => {
+                    if ( rss.data.status === "ok" ){
+                        return rss.data.response;
+                    }else{
+                        return "false";
+                    }
+                });       
+                
             }
         }
     )

@@ -1,12 +1,19 @@
-import Login from "./Login";
 import CreatePost from "./CreatePost";
-import DisplayPosts from "./Post";
+import DisplayPosts from "./Posts";
 
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Main (){
+    const state = useSelector((state) => {
+		return {
+			isAuthorized: state.authenticationReducer.userId,
+		};
+	});
     return (
-        
-        <CreatePost />
+        <div>
+            { state.isAuthorized && state.isAuthorized.name ? <CreatePost /> : "" }
+            <DisplayPosts />
+        </div>
 
     )
 }

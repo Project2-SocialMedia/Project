@@ -11,9 +11,7 @@ async function profileMethod (method,payload){
         switch (method) {
             case "GET_PROFILE":
                 payload.username ? query = { username: payload.username } : query = { userId: parseInt(payload.id) };
-                console.log(query);
                 profile = await profiles.findOne( query );
-                console.log(profile);
                 return profile;
             case "CREATE_PROFILE":
                 query = {

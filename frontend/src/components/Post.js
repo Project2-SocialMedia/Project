@@ -1,63 +1,32 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import "../app.css"
+import { useEffect, useState, useRef } from "react";
 const axios = require ('axios');
 
-export default function DisplayPosts (){
-    const [ postsArray, setPostsArray] = useState([]);
-
-	const state = useSelector((state) => {
-		return {
-			isAuthorized: state.authenticationReducer.userId,
-		};
-	});
-
-    async function getUserProfile (id){
-        return axios.get("/profile/getProfile", {
-            params:
-                {
-                    "id": id,
-                }
-        }).then((response) => {
-            console.log(response.data.response)
-            return response.data.response;
-        });        
-    }
-
-    useEffect(() => {
-        async function fetchPosts (){
-            await axios.get("/post/getPost", {
-                params:
-                    {
-                        "fillter": "all",
-                        "user": state.isAuthorized
-                    }
-                }).then( async (response) => {
-                    setPostsArray(response.data.response);
-                }
-            );
-        }
-        fetchPosts ();
-    }, [])
-
-    return(
-        <div>
-            {
-                postsArray?.map ( (post) => {
-                    return (
-                        <div className= "post">
-                            <div class="card text-center col-6 mx-auto m-5">
-                                <div class="card-header">
-                                    {post.user}
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text">{post.content}</p>
-                                </div>
-                            </div>
-                        </div>
-                    )
-                })
-            }
+export default function Post (props){
+    const post = props.info;
+    return (
+        <div class="col-sm-12">
+        <div class="card card-block card-stretch card-height">
+           <div class="card-body">
+              <div class="user-post-data">
+                 <div class="d-flex justify-content-between">
+                    <div class="me-3">
+                       <img class="rounded-circle img-fluid" src="https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" width="50" height="50" alt=""></img>
+                    </div>
+                    <div class="w-100">
+                       <div class="d-flex justify-content-between">
+                          <div class="">
+                             <h5 class="mb-0">{post.user.name} </h5>
+                             <small>{post.date}</small>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="mt-3">
+                 <p> { post.content } </p>
+              </div>
+           </div>
         </div>
-    )
+     </div>)
+
 }

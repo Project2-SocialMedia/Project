@@ -24,7 +24,6 @@ router.get ( '/getSession', async (request,response) => {
 
 router.delete ( '/deleteSession', async (request,response) => {
     let session = await sessionController.deleteSession(request.body);
-    console.log(request.body)
     response.send ( session )
 })
 module.exports = router;
